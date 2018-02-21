@@ -1,0 +1,519 @@
+G:\apm20180217\doc\guice>javac ProviderBindExample.java
+ProviderBindExample.java:1: error: package com.google.inject does not exist
+import com.google.inject.*;
+^
+ProviderBindExample.java:2: error: package com.google.inject.name does not exist
+import com.google.inject.name.*;
+^
+ProviderBindExample.java:5: error: cannot find symbol
+  public static class ProvModule extends AbstractModule {
+                                         ^
+  symbol:   class AbstractModule
+  location: class ProviderBindExample
+ProviderBindExample.java:18: error: cannot find symbol
+  public static class FooProvider implements Provider<Foo> {
+                                             ^
+  symbol:   class Provider
+  location: class ProviderBindExample
+ProviderBindExample.java:26: error: cannot find symbol
+    @Inject public Provider<Foo> provider;
+                   ^
+  symbol:   class Provider
+  location: class SomeClass
+ProviderBindExample.java:27: error: cannot find symbol
+    @Inject @Named("singleton") public Provider<Foo> singletonProvider;
+                                       ^
+  symbol:   class Provider
+  location: class SomeClass
+ProviderBindExample.java:26: error: cannot find symbol
+    @Inject public Provider<Foo> provider;
+     ^
+  symbol:   class Inject
+  location: class SomeClass
+ProviderBindExample.java:27: error: cannot find symbol
+    @Inject @Named("singleton") public Provider<Foo> singletonProvider;
+     ^
+  symbol:   class Inject
+  location: class SomeClass
+ProviderBindExample.java:27: error: cannot find symbol
+    @Inject @Named("singleton") public Provider<Foo> singletonProvider;
+             ^
+  symbol:   class Named
+  location: class SomeClass
+ProviderBindExample.java:9: error: cannot find symbol
+      bind(Foo.class).toProvider(FooProvider.class);
+      ^
+  symbol:   method bind(Class<Foo>)
+  location: class ProvModule
+ProviderBindExample.java:12: error: cannot find symbol
+          .in(Singleton.class);
+              ^
+  symbol:   class Singleton
+  location: class ProvModule
+ProviderBindExample.java:10: error: cannot find symbol
+      bind(Foo.class).annotatedWith(Names.named("singleton"))
+                                    ^
+  symbol:   variable Names
+  location: class ProvModule
+ProviderBindExample.java:10: error: cannot find symbol
+      bind(Foo.class).annotatedWith(Names.named("singleton"))
+      ^
+  symbol:   method bind(Class<Foo>)
+  location: class ProvModule
+ProviderBindExample.java:7: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+ProviderBindExample.java:31: error: cannot find symbol
+    Injector inj = Guice.createInjector(new ProvModule());
+    ^
+  symbol:   class Injector
+  location: class ProviderBindExample
+ProviderBindExample.java:31: error: cannot find symbol
+    Injector inj = Guice.createInjector(new ProvModule());
+                   ^
+  symbol:   variable Guice
+  location: class ProviderBindExample
+17 errors
+
+G:\apm20180217\doc\guice>javac -cp . ProviderBindExample.java
+ProviderBindExample.java:1: error: package com.google.inject does not exist
+import com.google.inject.*;
+^
+ProviderBindExample.java:2: error: package com.google.inject.name does not exist
+import com.google.inject.name.*;
+^
+ProviderBindExample.java:5: error: cannot find symbol
+  public static class ProvModule extends AbstractModule {
+                                         ^
+  symbol:   class AbstractModule
+  location: class ProviderBindExample
+ProviderBindExample.java:18: error: cannot find symbol
+  public static class FooProvider implements Provider<Foo> {
+                                             ^
+  symbol:   class Provider
+  location: class ProviderBindExample
+ProviderBindExample.java:26: error: cannot find symbol
+    @Inject public Provider<Foo> provider;
+                   ^
+  symbol:   class Provider
+  location: class SomeClass
+ProviderBindExample.java:27: error: cannot find symbol
+    @Inject @Named("singleton") public Provider<Foo> singletonProvider;
+                                       ^
+  symbol:   class Provider
+  location: class SomeClass
+ProviderBindExample.java:26: error: cannot find symbol
+    @Inject public Provider<Foo> provider;
+     ^
+  symbol:   class Inject
+  location: class SomeClass
+ProviderBindExample.java:27: error: cannot find symbol
+    @Inject @Named("singleton") public Provider<Foo> singletonProvider;
+     ^
+  symbol:   class Inject
+  location: class SomeClass
+ProviderBindExample.java:27: error: cannot find symbol
+    @Inject @Named("singleton") public Provider<Foo> singletonProvider;
+             ^
+  symbol:   class Named
+  location: class SomeClass
+ProviderBindExample.java:9: error: cannot find symbol
+      bind(Foo.class).toProvider(FooProvider.class);
+      ^
+  symbol:   method bind(Class<Foo>)
+  location: class ProvModule
+ProviderBindExample.java:12: error: cannot find symbol
+          .in(Singleton.class);
+              ^
+  symbol:   class Singleton
+  location: class ProvModule
+ProviderBindExample.java:10: error: cannot find symbol
+      bind(Foo.class).annotatedWith(Names.named("singleton"))
+                                    ^
+  symbol:   variable Names
+  location: class ProvModule
+ProviderBindExample.java:10: error: cannot find symbol
+      bind(Foo.class).annotatedWith(Names.named("singleton"))
+      ^
+  symbol:   method bind(Class<Foo>)
+  location: class ProvModule
+ProviderBindExample.java:7: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+ProviderBindExample.java:31: error: cannot find symbol
+    Injector inj = Guice.createInjector(new ProvModule());
+    ^
+  symbol:   class Injector
+  location: class ProviderBindExample
+ProviderBindExample.java:31: error: cannot find symbol
+    Injector inj = Guice.createInjector(new ProvModule());
+                   ^
+  symbol:   variable Guice
+  location: class ProviderBindExample
+17 errors
+
+G:\apm20180217\doc\guice>javac -cp .;guice-3.0.jar ProviderBindExample.java
+ProviderBindExample.java:18: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:9: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:11: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>javac -cp ".;guice-3.0.jar" ProviderBindExample.java
+ProviderBindExample.java:18: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:9: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:11: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>javac -cp guice-3.0.jar ProviderBindExample.java
+ProviderBindExample.java:18: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:9: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:11: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>javac -cp .\guice-3.0.jar;. ProviderBindExample.java
+ProviderBindExample.java:18: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:9: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:11: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>javac -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. ProviderBindExample.java
+ProviderBindExample.java:18: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:9: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:11: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:19: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>javac -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. ProviderBindExample.java
+ProviderBindExample.java:19: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:10: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:12: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:20: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>javac -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. ProviderBindExample.java
+
+G:\apm20180217\doc\guice>java -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. ProviderBindExample
+Exception in thread "main" java.lang.NoClassDefFoundError: ProviderBindExample (wrong name: Test/ProviderBindExample)
+        at java.lang.ClassLoader.defineClass1(Native Method)
+        at java.lang.ClassLoader.defineClass(ClassLoader.java:803)
+        at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+        at java.net.URLClassLoader.defineClass(URLClassLoader.java:449)
+        at java.net.URLClassLoader.access$100(URLClassLoader.java:71)
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:312)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+        at sun.launcher.LauncherHelper.checkAndLoadMain(LauncherHelper.java:482)
+
+G:\apm20180217\doc\guice>java -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. test.ProviderBindExample
+Error: Could not find or load main class test.ProviderBindExample
+
+G:\apm20180217\doc\guice>java -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. Test.ProviderBindExample
+Error: Could not find or load main class Test.ProviderBindExample
+
+G:\apm20180217\doc\guice>java -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. Test/ProviderBindExample
+Error: Could not find or load main class Test.ProviderBindExample
+
+G:\apm20180217\doc\guice>javac -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. ProviderBindExample.java
+
+G:\apm20180217\doc\guice>java -cp G:\apm20180217\doc\guice\*;.\guice-3.0.jar;. ProviderBindExample
+Exception in thread "main" java.lang.NoClassDefFoundError: [Lorg/aopalliance/intercept/MethodInterceptor;
+        at java.lang.Class.getDeclaredMethods0(Native Method)
+        at java.lang.Class.privateGetDeclaredMethods(Class.java:2625)
+        at java.lang.Class.getDeclaredMethods(Class.java:1868)
+        at com.google.inject.internal.ProviderMethodsModule.getProviderMethods(ProviderMethodsModule.java:81)
+        at com.google.inject.internal.ProviderMethodsModule.configure(ProviderMethodsModule.java:73)
+        at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:223)
+        at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:232)
+        at com.google.inject.spi.Elements.getElements(Elements.java:101)
+        at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:133)
+        at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:103)
+        at com.google.inject.Guice.createInjector(Guice.java:95)
+        at com.google.inject.Guice.createInjector(Guice.java:72)
+        at com.google.inject.Guice.createInjector(Guice.java:62)
+        at ProviderBindExample.main(ProviderBindExample.java:32)
+Caused by: java.lang.ClassNotFoundException: org.aopalliance.intercept.MethodInterceptor
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:312)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+        ... 14 more
+
+G:\apm20180217\doc\guice>java -cp G:\apm20180217\doc\guice\*;.\guice-3.0-no_aop.jar ProviderBindExample
+Error: Could not find or load main class ProviderBindExample
+
+G:\apm20180217\doc\guice>java -cp .\guice-3.0-no_aop.jar;guice-3.0-no_aop.jar;. ProviderBindExample.java
+Error: Could not find or load main class ProviderBindExample.java
+
+G:\apm20180217\doc\guice>javac -cp .\guice-3.0-no_aop.jar;guice-3.0-no_aop.jar;. ProviderBindExample.java
+ProviderBindExample.java:19: error: cannot access Provider
+  public static class FooProvider implements Provider<Foo> {
+                ^
+  class file for javax.inject.Provider not found
+ProviderBindExample.java:10: error: no suitable method found for toProvider(Class<FooProvider>)
+      bind(Foo.class).toProvider(FooProvider.class);
+                     ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:12: error: no suitable method found for toProvider(Class<FooProvider>)
+          .toProvider(FooProvider.class)
+          ^
+    method LinkedBindingBuilder.toProvider(Key<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Key<? extends javax.inject.Provider<? extends Foo>> by method invocation co
+nversion)
+    method LinkedBindingBuilder.toProvider(TypeLiteral<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to TypeLiteral<? extends javax.inject.Provider<? extends Foo>> by method invoc
+ation conversion)
+    method LinkedBindingBuilder.toProvider(Class<? extends javax.inject.Provider<? extends Foo>>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to Class<? extends javax.inject.Provider<? extends Foo>> by method invocation
+conversion)
+    method LinkedBindingBuilder.toProvider(com.google.inject.Provider<? extends Foo>) is not applicable
+      (actual argument Class<FooProvider> cannot be converted to com.google.inject.Provider<? extends Foo> by method invocation conversion)
+ProviderBindExample.java:20: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+4 errors
+
+G:\apm20180217\doc\guice>java -cp .\guice-3.0-no_aop.jar;guice-3.0-no_aop.jar;. ProviderBindExample
+Exception in thread "main" java.lang.NoClassDefFoundError: javax/inject/Provider
+        at com.google.inject.internal.MoreTypes.canonicalizeForKey(MoreTypes.java:81)
+        at com.google.inject.Key.<init>(Key.java:119)
+        at com.google.inject.Key.get(Key.java:212)
+        at com.google.inject.spi.Elements$RecordingBinder.bind(Elements.java:262)
+        at com.google.inject.internal.InjectorShell$RootModule.configure(InjectorShell.java:276)
+        at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:223)
+        at com.google.inject.spi.Elements.getElements(Elements.java:101)
+        at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:133)
+        at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:103)
+        at com.google.inject.Guice.createInjector(Guice.java:95)
+        at com.google.inject.Guice.createInjector(Guice.java:72)
+        at com.google.inject.Guice.createInjector(Guice.java:62)
+        at ProviderBindExample.main(ProviderBindExample.java:32)
+Caused by: java.lang.ClassNotFoundException: javax.inject.Provider
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:312)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+        ... 13 more
+
+G:\apm20180217\doc\guice>java -cp .\guice-3.0-no_aop.jar;javax.inject.jar;. ProviderBindExample
+Provider class = class com.google.inject.internal.InjectorImpl$4
+Singleton provider class = class com.google.inject.internal.InjectorImpl$4
+regular scope: objects are different
+singleton scope: objects are the same
+
+G:\apm20180217\doc\guice>
